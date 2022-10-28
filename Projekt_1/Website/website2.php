@@ -4,7 +4,7 @@ function readDb($postData) {
 
     if (isset($postData["minweight"])) {
 
-        $dbh = new PDO('mysql:host=localhost:3306;dbname=warpshop','root', 'usbw');
+        $dbh = new PDO('mysql:host=localhost;dbname=warpshop','root', 'usbw');
         $stmt = $dbh->prepare("SELECT Name, ModelNumber, gewicht, groesse FROM Product WHERE gewicht >= ? ORDER BY gewicht LIMIT 10");
 
         if ($stmt->execute(array($postData["minweight"]))) {
@@ -30,7 +30,7 @@ function readDb($postData) {
     <title>PHP und HTML</title>
 </head>
 <body>
-    <form action="SeiteB.php" method="post">
+    <form action="website2.php" method="post">
         Minimalgewicht: 
         <input type="text" name="minweight">
         <input type="submit" value="send">
